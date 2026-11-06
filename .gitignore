@@ -1,0 +1,14 @@
+# - data: never commit -
+data/
+*.duckdb
+*.duckdb.wal
+*.parquet
+
+# - Python -
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
