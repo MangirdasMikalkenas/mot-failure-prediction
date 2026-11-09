@@ -9,6 +9,7 @@ dependencies = [
     "lightgbm>=4.5",
     "statsmodels>=0.14",
     "matplotlib>=3.9",
+    "pyarrow>=26.0.1",
 ]
 
 [dependency-groups]
@@ -28,7 +29,7 @@ packages = ["src/mot"]
 [tool.ruff]
 line-length = 88
 target-version = "py312"
-src = ["src", "test"]
+src = ["src", "tests"]
 
 [tool.ruff.lint]
 select = [

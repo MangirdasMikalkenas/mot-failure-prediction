@@ -1,0 +1,15 @@
+[data]
+first_year = 2016
+last_year = 2024
+
+[sample]
+sample_rate = 0.1
+
+[date_splits]
+dates_training = {start = 2019, end = 2022}
+dates_validation = {start = 2023, end = 2023}
+dates_test = {start = 2024, end = 2024}
+
+[model]
+seed = 163
+# model_settings = 0
