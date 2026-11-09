@@ -255,6 +255,7 @@ dependencies = [
     { name = "pyarrow" },
     { name = "scikit-learn" },
     { name = "statsmodels" },
+    { name = "zipfile-deflate64" },
 ]
 
 [package.dev-dependencies]
@@ -273,6 +274,7 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=26.0.1" },
     { name = "scikit-learn", specifier = ">=1.5" },
     { name = "statsmodels", specifier = ">=0.14" },
+    { name = "zipfile-deflate64", specifier = ">=0.2.0" },
 ]
 
 [package.metadata.requires-dev]
@@ -689,3 +691,9 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/37/1e/232868b68b925ab29ca5acbec4ad54ee42a853fcd8f596bf7e0e0e3850f1/wrapt-2.5.2-cp312-cp312-win_arm64.whl", hash = "sha256:81bdf0bd141d9b1706a0751b2ee068c7afe6be4042712d427b32b3072d5c40b9", size = 103377, upload-time = "2026-10-29T23:04:59.366Z" },
     { url = "https://files.pythonhosted.org/packages/77/8b/1ea57b936b70f98e8e7620a352578096d778dbee95b262f73c066d210ffb/wrapt-2.5.2-py3-none-any.whl", hash = "sha256:61eb54e9540ea522c2c4752a57549a83d3c67e6704ed708403d28e067aaf90f0", size = 82025, upload-time = "2026-10-29T23:06:38.56Z" },
 ]
+
+[[package]]
+name = "zipfile-deflate64"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/03/1b/f397f821b48156ee94c5ca7ad82dc5cdb73cbcbc4377b9c1b21556f3ce8c/zipfile-deflate64-0.2.0.tar.gz", hash = "sha256:875a3299de102edf1c17f8cafcc528b1ca80b62dc4814b9cb56867ec59fbfd18", size = 62896, upload-time = "2022-01-05T09:24:39.575Z" }

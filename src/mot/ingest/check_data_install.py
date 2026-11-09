@@ -3,6 +3,7 @@
 # for the files in the data source. It does not check if some of the installations
 # were cutoff.
 
+import sys
 import tomllib
 from pathlib import Path
 
@@ -30,7 +31,7 @@ def expected_file_names(year: int) -> list[str]:
 def load_years() -> range:
     with config_path.open("rb") as f:
         data_cfg = tomllib.load(f)["data"]
-        # range() stops before the end number, so +1 makes last_year included.
+    # range() stops before the end number, so +1 makes last_year included.
     return range(data_cfg["first_year"], data_cfg["last_year"] + 1)
 
 
@@ -73,4 +74,4 @@ def ch_main() -> int:
 
 
 if __name__ == "__main__":
-    ch_main()
+    sys.exit(ch_main())
