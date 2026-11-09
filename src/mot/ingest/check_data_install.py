@@ -27,17 +27,20 @@ def expected_file_names(year: int) -> list[str]:
         return []
 
 
+def load_years() -> range:
+    with config_path.open("rb") as f:
+        data_cfg = tomllib.load(f)["data"]
+        # range() stops before the end number, so +1 makes last_year included.
+    return range(data_cfg["first_year"], data_cfg["last_year"] + 1)
+
+
 def ch_main() -> int:
     # Compares the files we expect with the files in data/raw.
     # Returns 1 if any file is missing, 0 if everything is there.
     # Read the [data] section of configs/tunable.toml to get the year range.
     # "rb" = read in binary mode, which tomllib needs.
 
-    with config_path.open("rb") as f:
-        data_cfg = tomllib.load(f)["data"]
-
-    # range() stops before the end number, so +1 makes last_year included.
-    years = range(data_cfg["first_year"], data_cfg["last_year"] + 1)
+    years = load_years()
 
     # Build one list with every file name we expect, for all years.
     expected = []
