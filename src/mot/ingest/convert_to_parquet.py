@@ -40,3 +40,22 @@ def extract_csv(z, info, out_dir=tmp_dir):
     finally:
         info.filename = original_filename
     return Path(extracted)
+
+
+def csv_gz_to_parquet(csv_path, parquet_path):
+    tmp_path = parquet_path.with_suffix(".parquet.tmp")
+
+    parquet_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with duckdb.connect() as con:
+        con.execute("SET memory_limit = '5GB';")
+        con.execute("SET preserve_insertion_order = false;")
+
+        query = f"""
+            COPY (SELECT * FROM read_csv('{csv_path}',
+            header = true, all_varchar = true))
+            TO '{tmp_path}'
+            (FORMAT parquet, COMPRESSION zstd);
+        """
+        con.execute(query)
+    tmp_path.rename(parquet_path)
